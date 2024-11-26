@@ -1,4 +1,5 @@
 import pygame
+from functions import cowboy_jump, cowboy_pace, jump_speed
 from vars_const import WIDTH, HEIGHT
 
 pygame.init()
@@ -9,7 +10,7 @@ pygame.display.set_caption("RUN THROUGH THE DESERT")
 bg_images = []
 
 for i in range(1,10):
-    bg_image = pygame.image.load(f"assets\parallax\parallax_desert\layer{i}.png").convert_alpha()
+    bg_image = pygame.image.load(f"assets/parallax/parallax_desert/layer4.png").convert_alpha()
     bg_images.append(bg_image)
     
 for i in bg_images:
@@ -22,7 +23,10 @@ while (running):
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.KEYDOWN:
-            pass
+            if event.key == pygame.K_SPACE:
+                cowboy_jump = True
+                cowboy_pace = jump_speed
+                print(' AAAAAAAAAAAA')
         
         pygame.display.update()
 
